@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -21,9 +22,11 @@ class NavbarController extends Controller
      */
     public function link(string $id, string $name)
     {
-        if(DB::connection()->getDatabaseName())
-        {
-            echo "conncted sucessfully to database ".DB::connection()->getDatabaseName();
+        try {
+            DB::connection()->getPDO();
+            dump('Database connected: ' . DB::connection()->getDatabaseName());
+        } catch (Exception $e) {
+            dump('Database connected: ' . 'None');
         }
     }
     public function room()
