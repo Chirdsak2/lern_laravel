@@ -20,7 +20,7 @@ class NavbarController extends Controller
      */
     public function link(string $id, string $name)
     {
-        echo 'xxxxxxxxxxxxxx';
+        echo 'xttttx';
     }
     public function room()
     {
