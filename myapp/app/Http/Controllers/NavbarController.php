@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class NavbarController extends Controller
@@ -20,7 +21,10 @@ class NavbarController extends Controller
      */
     public function link(string $id, string $name)
     {
-        echo 'xttttx';
+        if(DB::connection()->getDatabaseName())
+        {
+            echo "conncted sucessfully to database ".DB::connection()->getDatabaseName();
+        }
     }
     public function room()
     {
