@@ -31,7 +31,8 @@ class NavbarController extends Controller
     }
     public function room()
     {
-        $response = Http::get('http://203.151.166.132/dip_smartoffice_erp/service/getRoomList.php');
+        $urlApi = env('URL_API');
+        $response = Http::get($urlApi);
         if ($response->successful()) {
             $data = $response->json();
             // dd($data);
